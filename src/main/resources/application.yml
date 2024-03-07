@@ -1,0 +1,49 @@
+spring:
+  security:
+    user:
+      password: 12345678x@X
+    filter:
+      order: 10
+
+  profiles:
+    active: prod
+
+
+#mongodb
+  datasource:
+    url: jdbc:postgresql://localhost:5432/myfinancedb
+    username: postgres
+    password:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  mvc:
+    log-request-details: true
+
+logging:
+  level:
+    org:
+      springframework:
+        web: WARN
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /api-docs/myapp-docs.html
+  show-actuator: true
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expired-time: 300000 # 5mins
+
